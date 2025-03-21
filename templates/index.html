@@ -7,35 +7,36 @@
     <style>
         body {
             margin: 0;
-            background-color: #501919;
+            background-color: #3D1E6D;
             font-family: sans-serif;
-            color: azure;
+            color: white;
             text-align: center;
         }
         form {
             margin: 20px auto;
-            width: 300px;
+            width: 400px;
             border-radius: 10px;
-            background-color: #d48080;
+            background-color: #7A4CA4;
             padding: 20px;
-            color: rgb(42, 5, 5);
+            color: white;
             text-align: left;
         }
-        input {
+        input, select {
             display: block;
             width: 100%;
             padding: 8px;
             border: none;
-            border-bottom: 1px solid #000;
+            border-bottom: 1px solid #fff;
             background-color: transparent;
             margin-bottom: 10px;
             outline: none;
             font-size: 16px;
+            color: white;
         }
         button {
             width: 100%;
             padding: 10px;
-            background-color: #672323;
+            background-color: #4B0082;
             color: white;
             border: none;
             border-radius: 5px;
@@ -43,22 +44,30 @@
             font-size: 16px;
         }
         button:hover {
-            background-color: #555;
+            background-color: #6A0DAD;
+        }
+        .contenedor {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 20px;
         }
         .caja {
-            margin: 20px auto;
-            width: 300px;
             border: 1px solid #fff;
             border-radius: 10px;
             padding: 10px;
-            background-color: #5e2c2c;
+            background-color: #5A2D82;
+            max-width: 600px;
+            margin: 0 auto;
         }
         .caja ul {
             list-style: none;
             padding: 0;
         }
         .caja li {
-            background-color: #602626;
+            background-color: #7B3FAF;
             padding: 5px;
             margin: 5px 0;
             border-radius: 5px;
@@ -71,31 +80,29 @@
     <h1>DFS Solver</h1>
     <form action="/solve" method="post">
         <h1>DFS Solver</h1>
-        <label for="estado_inicial">Estado Inicial (separado por comas):</label>
+        <label for="estado_inicial">Nodo Inicial (separado por comas):</label>
         <input type="text" id="estado_inicial" name="estado_inicial" placeholder="Ejemplo: 4,2,3,1" required>
     
-        <label for="solucion">Solución (separado por comas):</label>
+        <label for="solucion"> Nodo Solución (separado por comas):</label>
         <input type="text" id="solucion" name="solucion" placeholder="Ejemplo: 1,2,3,4" required>
     
         <label for="algoritmo">Selecciona el algoritmo:</label>
         <select id="algoritmo" name="algoritmo" required>
             <option value="DFS">DFS</option>
-            <option value="Puzzle">Puzzle</option>
-            <option value="Puzzle1">Puzzle1</option>
+            <option value="Puzzle">BFS</option>
+            <option value="Puzzle1">Puzzle_BFS</option>
         </select>
     
         <button type="submit">Resolver</button>
     </form>
-\
 
     {% if resultado %}
     <div class="caja">
-        <h2>Resultado:</h2>
-        <ul>
+        <h2>Resultado</h2>
+        <ul class="contenedor">
             {% for estado in resultado %}
-                 <li>{{ estado }}</li>
+            <li>{{ estado }}</li>
             {% endfor %}
-
         </ul>
     </div>
     {% endif %}
