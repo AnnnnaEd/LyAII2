@@ -12,6 +12,13 @@
             color: white;
             text-align: center;
         }
+        h1 {
+            margin: 0;
+            background-color: #3D1E6D;
+            font-family: sans-serif;
+            color: white;
+            text-align: center;
+        }
         form {
             margin: 20px auto;
             width: 400px;
@@ -79,11 +86,10 @@
 
     <h1>DFS, BFS y DFS_Recursivo Solver</h1>
     <form action="/solve" method="post">
-        <h1>Agrega el Estado Inicial y Estado Objetivo para buscar el camino mas optimo según el metódo </h1>
-        <label for="estado_inicial">Estado Inicial (separado por comas):</label>
+        <label for="estado_inicial">Estado Inicial:</label>
         <input type="text" id="estado_inicial" name="estado_inicial" placeholder="Ejemplo: 4,2,3,1" required>
     
-        <label for="solucion"> Estado Objetivo (separado por comas):</label>
+        <label for="solucion"> Estado Objetivo:</label>
         <input type="text" id="solucion" name="solucion" placeholder="Ejemplo: 1,2,3,4" required>
     
         <label for="algoritmo">Selecciona el algoritmo:</label>
