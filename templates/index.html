@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DFS Solver</title>
+    <title>Metodos</title>
     <style>
         body {
             margin: 0;
@@ -24,12 +24,13 @@
         input {
             display: block;
             width: 100%;
-            padding: 5px;
+            padding: 8px;
             border: none;
             border-bottom: 1px solid #000;
             background-color: transparent;
             margin-bottom: 10px;
             outline: none;
+            font-size: 16px;
         }
         button {
             width: 100%;
@@ -39,6 +40,7 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            font-size: 16px;
         }
         button:hover {
             background-color: #555;
@@ -60,29 +62,40 @@
             padding: 5px;
             margin: 5px 0;
             border-radius: 5px;
+            color: #fff;
         }
     </style>
 </head>
 <body>
 
+    <h1>DFS Solver</h1>
     <form action="/solve" method="post">
         <h1>DFS Solver</h1>
         <label for="estado_inicial">Estado Inicial (separado por comas):</label>
-        <input type="text" id="estado_inicial" name="estado_inicial" required>
-
+        <input type="text" id="estado_inicial" name="estado_inicial" placeholder="Ejemplo: 4,2,3,1" required>
+    
         <label for="solucion">Solución (separado por comas):</label>
-        <input type="text" id="solucion" name="solucion" required>
-
+        <input type="text" id="solucion" name="solucion" placeholder="Ejemplo: 1,2,3,4" required>
+    
+        <label for="algoritmo">Selecciona el algoritmo:</label>
+        <select id="algoritmo" name="algoritmo" required>
+            <option value="DFS">DFS</option>
+            <option value="Puzzle">Puzzle</option>
+            <option value="Puzzle1">Puzzle1</option>
+        </select>
+    
         <button type="submit">Resolver</button>
     </form>
+\
 
     {% if resultado %}
     <div class="caja">
         <h2>Resultado:</h2>
         <ul>
             {% for estado in resultado %}
-                <li>{{ estado }}</li>
+                 <li>{{ estado }}</li>
             {% endfor %}
+
         </ul>
     </div>
     {% endif %}

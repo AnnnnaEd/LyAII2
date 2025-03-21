@@ -1,4 +1,4 @@
-from Arbol_correjido import Nodo
+from Arbol import Nodo
 
 def buscar_solucion_dfs_rec(nodo_inicial, solucion, visitados):
     visitados.append(nodo_inicial.get_datos())
