@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Solver</title>
     <style>
         body {
             margin: 0;
@@ -28,7 +28,7 @@
             color: white;
             text-align: left;
         }
-        input, select {
+        input {
             display: block;
             width: 100%;
             padding: 8px;
@@ -53,51 +53,31 @@
         button:hover {
             background-color: #6A0DAD;
         }
-        .contenedor {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            max-width: 1400px;
-            margin: 40px auto;
-            padding: 20px;
-        }
         .caja {
             border: 1px solid #fff;
             border-radius: 10px;
             padding: 10px;
             background-color: #5A2D82;
             max-width: 600px;
-            margin: 0 auto;
+            margin: 20px auto;
+            text-align: left;
         }
-        .caja ul {
-            list-style: none;
-            padding: 0;
-        }
-        .caja li {
+        .resultado-metodo {
+            margin-bottom: 10px;
+            padding: 10px;
             background-color: #7B3FAF;
-            padding: 5px;
-            margin: 5px 0;
             border-radius: 5px;
-            color: #fff;
         }
     </style>
 </head>
 <body>
-
     <h1>DFS, BFS y DFS_Recursivo Solver</h1>
     <form action="/solve" method="post">
         <label for="estado_inicial">Estado Inicial:</label>
         <input type="text" id="estado_inicial" name="estado_inicial" placeholder="Ejemplo: 4,2,3,1" required>
     
-        <label for="solucion"> Estado Objetivo:</label>
+        <label for="solucion">Estado Objetivo:</label>
         <input type="text" id="solucion" name="solucion" placeholder="Ejemplo: 1,2,3,4" required>
-    
-        <label for="algoritmo">Selecciona el algoritmo:</label>
-        <select id="algoritmo" name="algoritmo" required>
-            <option value="DFS">DFS_Recursivo</option>
-            <option value="Puzzle">BFS</option>
-            <option value="Puzzle1">DFS</option>
-        </select>
     
         <button type="submit">Resolver</button>
     </form>
@@ -105,13 +85,13 @@
     {% if resultado %}
     <div class="caja">
         <h2>Resultado</h2>
-        <ul class="contenedor">
-            {% for estado in resultado %}
-            <li>{{ estado }}</li>
-            {% endfor %}
-        </ul>
+        {% for metodo, estados in resultado %}
+        <div class="resultado-metodo">
+            <p><strong>{{ metodo }}:</strong> {{ estados | join(' → ') }}</p>
+        </div>
+        {% endfor %}
     </div>
     {% endif %}
-
 </body>
 </html>
+
