@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Metodos</title>
+    <title></title>
     <style>
         body {
             margin: 0;
@@ -77,20 +77,20 @@
 </head>
 <body>
 
-    <h1>DFS Solver</h1>
+    <h1>DFS, BFS y DFS_Recursivo Solver</h1>
     <form action="/solve" method="post">
-        <h1>DFS Solver</h1>
-        <label for="estado_inicial">Nodo Inicial (separado por comas):</label>
+        <h1>Agrega el Estado Inicial y Estado Objetivo para buscar el camino mas optimo según el metódo </h1>
+        <label for="estado_inicial">Estado Inicial (separado por comas):</label>
         <input type="text" id="estado_inicial" name="estado_inicial" placeholder="Ejemplo: 4,2,3,1" required>
     
-        <label for="solucion"> Nodo Solución (separado por comas):</label>
+        <label for="solucion"> Estado Objetivo (separado por comas):</label>
         <input type="text" id="solucion" name="solucion" placeholder="Ejemplo: 1,2,3,4" required>
     
         <label for="algoritmo">Selecciona el algoritmo:</label>
         <select id="algoritmo" name="algoritmo" required>
-            <option value="DFS">DFS</option>
+            <option value="DFS">DFS_Recursivo</option>
             <option value="Puzzle">BFS</option>
-            <option value="Puzzle1">Puzzle_BFS</option>
+            <option value="Puzzle1">DFS</option>
         </select>
     
         <button type="submit">Resolver</button>
